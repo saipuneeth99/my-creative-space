@@ -15,6 +15,14 @@ const projects = [
     ],
     github: "https://github.com/saipuneeth99",
     image: "/project-chat.jpg",
+    screenshots: [
+      "/chat-splash.jpg",
+      "/chat-signup.jpg", 
+      "/chat-login.jpg",
+      "/chat-messages.jpg",
+      "/chat-conversation.jpg",
+      "/chat-new-chat.jpg"
+    ]
   },
   {
     title: "Fake Social Media Account Detector",
@@ -112,6 +120,24 @@ const ProjectsSection = () => {
                           />
                         </div>
                       )}
+                      
+                      {project.screenshots && project.screenshots.length > 0 && (
+                        <div className="space-y-2">
+                          <p className="text-xs font-mono text-primary">App Screenshots</p>
+                          <div className="grid grid-cols-3 gap-2">
+                            {project.screenshots.map((screenshot, idx) => (
+                              <div key={idx} className="aspect-[9/16] rounded-lg overflow-hidden bg-secondary/20 border border-border/50">
+                                <img 
+                                  src={screenshot} 
+                                  alt={`${project.title} screenshot ${idx + 1}`}
+                                  className="w-full h-full object-cover"
+                                />
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                      
                       <ul className="space-y-2">
                         {project.points.map((point, j) => (
                           <li

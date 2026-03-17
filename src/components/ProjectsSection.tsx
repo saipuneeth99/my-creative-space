@@ -124,13 +124,14 @@ const ProjectsSection = () => {
                       {project.screenshots && project.screenshots.length > 0 && (
                         <div className="space-y-2">
                           <p className="text-xs font-mono text-primary">App Screenshots</p>
-                          <div className="grid grid-cols-3 gap-2">
+                          <div className="grid grid-cols-3 gap-3">
                             {project.screenshots.map((screenshot, idx) => (
-                              <div key={idx} className="aspect-[9/16] rounded-lg overflow-hidden bg-secondary/20 border border-border/50">
+                              <div key={idx} className="overflow-hidden bg-secondary/20 border border-border/50 rounded-lg">
                                 <img 
                                   src={screenshot} 
                                   alt={`${project.title} screenshot ${idx + 1}`}
-                                  className="w-full h-full object-cover"
+                                  className="w-full h-auto"
+                                  loading="lazy"
                                 />
                               </div>
                             ))}

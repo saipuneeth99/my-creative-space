@@ -48,6 +48,16 @@ const projects = [
     ],
     github: "https://github.com/saipuneeth99",
     image: "/project-grabit.jpg",
+    screenshots: [
+      "/grabit-1.jpg",
+      "/grabit-2.jpg",
+      "/grabit-3.jpg",
+      "/grabit-4.jpg",
+      "/grabit-5.jpg",
+      "/grabit-6.jpg",
+      "/grabit-7.jpg",
+      "/grabit-8.jpg"
+    ]
   },
 ];
 

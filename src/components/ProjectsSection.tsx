@@ -36,6 +36,9 @@ const projects = [
     github: "https://github.com/saipuneeth99",
     live: "#",
     image: "/project-fake-detector.jpg",
+    screenshots: [
+      "/detector-1.jpg"
+    ]
   },
   {
     title: "Grabit – Quick Commerce App",

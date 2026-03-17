@@ -111,17 +111,7 @@ const ProjectsSection = () => {
                       transition={{ duration: 0.3 }}
                       className="border-t border-border/50 bg-secondary/10 p-4 space-y-4"
                     >
-                      {project.image && (
-                        <div className="w-full h-80 rounded-lg overflow-hidden bg-secondary/20 border border-border/50">
-                          <img 
-                            src={project.image} 
-                            alt={project.title}
-                            className="w-full h-full object-contain"
-                          />
-                        </div>
-                      )}
-                      
-                      {project.screenshots && project.screenshots.length > 0 && (
+                      {project.screenshots && project.screenshots.length > 0 ? (
                         <div className="space-y-2">
                           <p className="text-xs font-mono text-primary">App Screenshots</p>
                           <div className="grid grid-cols-3 gap-3">
@@ -136,6 +126,14 @@ const ProjectsSection = () => {
                               </div>
                             ))}
                           </div>
+                        </div>
+                      ) : project.image && (
+                        <div className="w-full h-80 rounded-lg overflow-hidden bg-secondary/20 border border-border/50">
+                          <img 
+                            src={project.image} 
+                            alt={project.title}
+                            className="w-full h-full object-contain"
+                          />
                         </div>
                       )}
                       

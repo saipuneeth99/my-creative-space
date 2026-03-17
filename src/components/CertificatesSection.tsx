@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ExternalLink, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const certificates = [
@@ -8,7 +8,6 @@ const certificates = [
     title: "Flutter and Dart – The Complete Guide",
     issuer: "Udemy",
     date: "Nov 2025",
-    link: "#",
     description: "Comprehensive training in Flutter and Dart, focusing on UI design, app architecture, and cross-platform development.",
     image: "/cert-flutter.jpg",
   },
@@ -16,7 +15,6 @@ const certificates = [
     title: "Master Generative AI & Generative AI Tools",
     issuer: "Udemy",
     date: "Aug 2025",
-    link: "#",
     description: "Deep dive into generative AI models, prompt engineering, and utilizing AI tools for advanced workflows.",
     image: "/cert-genai.jpg",
   },
@@ -24,7 +22,6 @@ const certificates = [
     title: "Unrevealing Basic Python towards ML/AI",
     issuer: "CSE Pathshala",
     date: "Mar 2024",
-    link: "#",
     description: "Foundational course covering Python basics and transitioning into fundamental Machine Learning and AI concepts.",
     image: "/cert-python.jpg",
   },
@@ -87,15 +84,6 @@ const CertificatesSection = () => {
                         </div>
                       )}
                       <p className="text-muted-foreground text-sm mb-4">{cert.description}</p>
-                      <motion.a
-                        whileHover={{ x: 5 }}
-                        href={cert.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-xs font-medium text-foreground hover:text-primary transition-colors"
-                      >
-                        View Certificate <ExternalLink className="w-3.5 h-3.5" />
-                      </motion.a>
                     </motion.div>
                   )}
                 </motion.div>

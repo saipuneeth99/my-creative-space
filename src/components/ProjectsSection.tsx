@@ -13,7 +13,7 @@ const projects = [
       "Implemented Provider-based MVCS architecture with conversation-participant schema and read-receipt tracking",
       "Achieved instant message delivery and state synchronization using database event listeners instead of polling",
     ],
-    github: "https://github.com/saipuneeth99",
+    github: "https://github.com/saipuneeth99/chating_app",
     image: "/project-chat.jpg",
     screenshots: [
       "/chat-splash.jpg",
@@ -33,8 +33,7 @@ const projects = [
       "Optimized and selected models (LR, RF, GBM, XGBoost) using hyperparameter tuning and AUC metrics",
       "Deployed a production-ready Streamlit app with real-time inference and serialized model pipelines",
     ],
-    github: "https://github.com/saipuneeth99",
-    live: "#",
+    github: "https://github.com/saipuneeth99/social-media-fraud-detection",
     image: "/project-fake-detector.jpg",
     screenshots: [
       "/detector-1.jpg"
@@ -49,7 +48,7 @@ const projects = [
       "Designed responsive UI with auto-scrolling grids, category navigation, and GetX state management",
       "Reduced cold-start time and memory usage by 40% vs Blinkit/Zepto via optimized widget rendering",
     ],
-    github: "https://github.com/saipuneeth99",
+    github: "https://github.com/saipuneeth99/grabit_app-flutter-",
     image: "/project-grabit.jpg",
     screenshots: [
       "/grabit-1.jpg",
@@ -127,18 +126,29 @@ const ProjectsSection = () => {
                       {project.screenshots && project.screenshots.length > 0 ? (
                         <div className="space-y-2">
                           <p className="text-xs font-mono text-primary">App Screenshots</p>
-                          <div className="grid grid-cols-3 gap-3">
-                            {project.screenshots.map((screenshot, idx) => (
-                              <div key={idx} className="overflow-hidden bg-secondary/20 border border-border/50 rounded-lg">
-                                <img 
-                                  src={screenshot} 
-                                  alt={`${project.title} screenshot ${idx + 1}`}
-                                  className="w-full h-auto"
-                                  loading="lazy"
-                                />
-                              </div>
-                            ))}
-                          </div>
+                          {project.screenshots.length === 1 ? (
+                            <div className="overflow-hidden bg-secondary/20 border border-border/50 rounded-lg">
+                              <img
+                                src={project.screenshots[0]}
+                                alt={`${project.title} full screenshot`}
+                                className="w-full h-auto"
+                                loading="lazy"
+                              />
+                            </div>
+                          ) : (
+                            <div className="grid grid-cols-3 gap-3">
+                              {project.screenshots.map((screenshot, idx) => (
+                                <div key={idx} className="overflow-hidden bg-secondary/20 border border-border/50 rounded-lg">
+                                  <img
+                                    src={screenshot}
+                                    alt={`${project.title} screenshot ${idx + 1}`}
+                                    className="w-full h-auto"
+                                    loading="lazy"
+                                  />
+                                </div>
+                              ))}
+                            </div>
+                          )}
                         </div>
                       ) : project.image && (
                         <div className="w-full h-80 rounded-lg overflow-hidden bg-secondary/20 border border-border/50">

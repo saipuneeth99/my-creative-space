@@ -1,16 +1,15 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Image as ImageIcon } from "lucide-react";
+import { Image as ImageIcon } from "lucide-react";
 
 interface CertCardProps {
   title: string;
   issuer: string;
   date: string;
   description: string;
-  link?: string;
   image?: string;
 }
 
-const CertCard = ({ title, issuer, date, description, link, image }: CertCardProps) => {
+const CertCard = ({ title, issuer, date, description, image }: CertCardProps) => {
   return (
     <div>
       {/* Screenshot area */}
@@ -34,18 +33,6 @@ const CertCard = ({ title, issuer, date, description, link, image }: CertCardPro
 
       <h3 className="text-lg md:text-xl font-bold mb-3 leading-tight transition-colors group-hover:text-primary">{title}</h3>
       <p className="text-muted-foreground text-sm mb-5 leading-relaxed">{description}</p>
-
-      {link && (
-        <motion.a
-          whileHover={{ x: 5 }}
-          href={link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-primary transition-colors"
-        >
-          View Certificate <ExternalLink className="w-4 h-4" />
-        </motion.a>
-      )}
     </div>
   );
 };

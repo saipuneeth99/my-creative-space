@@ -10,46 +10,44 @@ const links = [
 
 const ContactSection = () => {
   return (
-    <section id="contact" className="section-padding bg-card/30">
-      <div className="max-w-3xl mx-auto text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <p className="font-mono text-primary text-sm tracking-widest uppercase mb-2">Get in touch</p>
-          <h2 className="text-3xl md:text-5xl font-bold font-mono mb-6">Let's Connect</h2>
-          <p className="text-muted-foreground mb-12 max-w-lg mx-auto">
-            Open to opportunities in software development, ML engineering, and mobile app development.
-          </p>
-        </motion.div>
+    <div className="text-center">
+      <p className="font-mono text-primary text-sm tracking-widest uppercase mb-2">Get in touch</p>
+      <h3 className="text-2xl md:text-3xl font-bold font-mono mb-3 text-shimmer">Let's Connect</h3>
+      <p className="text-muted-foreground mb-8 text-sm max-w-sm mx-auto">
+        Open to opportunities in software development, ML engineering, and mobile app development.
+      </p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.15 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
-        >
-          {links.map(({ icon: Icon, label, href }) => (
-            <a
-              key={label}
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-5 py-3 rounded-xl border border-border bg-card hover:border-primary/50 hover:glow-border transition-all duration-300 text-sm text-muted-foreground hover:text-foreground"
-            >
-              <Icon className="w-4 h-4 text-primary" />
-              {label}
-            </a>
-          ))}
-        </motion.div>
-
-        <p className="mt-20 text-xs text-muted-foreground font-mono">
-          © 2026 Sai Puneeth Yerramsetti
-        </p>
+      <div className="flex flex-col sm:flex-row items-center justify-center gap-3 flex-wrap">
+        {links.map(({ icon: Icon, label, href }, i) => (
+          <motion.a
+            key={label}
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 + (i * 0.08) }}
+            whileHover={{ y: -3, scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-border/50 bg-secondary/20 hover:border-primary/30 hover:glow-border transition-all duration-300 text-sm text-muted-foreground hover:text-foreground group"
+          >
+            <Icon className="w-4 h-4 text-primary transition-transform group-hover:scale-110" />
+            <span className="text-xs">{label}</span>
+          </motion.a>
+        ))}
       </div>
-    </section>
+
+      <motion.p
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.5 }}
+        className="mt-12 text-xs text-muted-foreground font-mono"
+      >
+        © 2026 Sai Puneeth Yerramsetti
+      </motion.p>
+    </div>
   );
 };
 

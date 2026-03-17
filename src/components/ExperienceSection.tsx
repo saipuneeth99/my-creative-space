@@ -2,61 +2,44 @@ import { motion } from "framer-motion";
 
 const ExperienceSection = () => {
   return (
-    <section id="experience" className="section-padding">
-      <div className="max-w-6xl mx-auto">
+    <div>
+      <p className="font-mono text-primary text-sm tracking-widest uppercase mb-2">Where I've worked</p>
+      <h3 className="text-2xl md:text-3xl font-bold font-mono mb-8">Experience</h3>
+
+      <div className="grid gap-4">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-16"
+          whileHover={{ y: -3, scale: 1.01 }}
+          transition={{ duration: 0.3 }}
+          className="group p-5 md:p-6 rounded-xl bg-secondary/20 border border-border/50 hover:border-primary/30 transition-all duration-300"
         >
-          <p className="font-mono text-primary text-sm tracking-widest uppercase mb-2">Where I've worked</p>
-          <h2 className="text-3xl md:text-5xl font-bold font-mono">Experience</h2>
+          <p className="font-mono text-xs text-muted-foreground mb-2">Jun 2025 – Aug 2025</p>
+          <h4 className="text-lg md:text-xl font-bold mb-1 transition-colors group-hover:text-primary">Gen AI Intern</h4>
+          <p className="text-primary font-mono text-xs mb-5">NeuroverseAI</p>
+          <ul className="space-y-3">
+            {[
+              "Conducted Generative AI model experimentation and benchmarking to evaluate efficiency and output performance",
+              "Applied advanced prompt engineering to improve contextual accuracy, relevance, and reliability across use-cases",
+              "Developed prototype automation tools and internal utilities to streamline content generation workflows",
+              "Collaborated with engineering & research teams, contributing creative solutions and ensuring consistent delivery"
+            ].map((item, index) => (
+              <motion.li
+                key={index}
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.1 + (index * 0.08) }}
+                className="flex items-start gap-2 text-muted-foreground text-sm"
+              >
+                <span className="text-primary mt-1.5 text-[6px] transition-transform group-hover:scale-150">■</span>
+                <span className="leading-relaxed">{item}</span>
+              </motion.li>
+            ))}
+          </ul>
         </motion.div>
-
-        <div className="grid md:grid-cols-2 gap-6">
-          {/* Internship */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="p-6 md:p-8 rounded-2xl bg-card border border-border"
-          >
-            <p className="font-mono text-xs text-muted-foreground mb-2">Jun 2025 – Aug 2025</p>
-            <h3 className="text-xl font-bold mb-1">Gen AI Intern</h3>
-            <p className="text-primary font-mono text-sm mb-4">NeuroverseAI</p>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li className="flex items-start gap-2"><span className="text-primary mt-1.5 text-[6px]">●</span>Generative AI model experimentation and benchmarking</li>
-              <li className="flex items-start gap-2"><span className="text-primary mt-1.5 text-[6px]">●</span>Advanced prompt engineering for contextual accuracy</li>
-              <li className="flex items-start gap-2"><span className="text-primary mt-1.5 text-[6px]">●</span>Prototype automation tools for content generation workflows</li>
-            </ul>
-          </motion.div>
-
-          {/* Education */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="p-6 md:p-8 rounded-2xl bg-card border border-border"
-          >
-            <p className="font-mono text-xs text-muted-foreground mb-2">Since Aug 2023</p>
-            <h3 className="text-xl font-bold mb-1">B.Tech in Computer Science</h3>
-            <p className="text-primary font-mono text-sm mb-4">Lovely Professional University · AI & ML</p>
-            <p className="text-muted-foreground text-sm">CGPA: 7.27</p>
-
-            <div className="mt-6 pt-6 border-t border-border">
-              <p className="font-mono text-xs text-primary uppercase tracking-wider mb-3">Certifications</p>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>Flutter & Dart – The Complete Guide (Udemy)</li>
-                <li>Master Generative AI & Tools (Udemy)</li>
-                <li>Python towards ML/AI (CSE Pathshala)</li>
-              </ul>
-            </div>
-          </motion.div>
-        </div>
       </div>
-    </section>
+    </div>
   );
 };
 
